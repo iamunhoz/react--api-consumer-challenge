@@ -1,0 +1,11 @@
+### This file containts http requests for testing purposes
+### It was made to be used on vs-code with 'Rest Client' extension installed
+
+###variables
+@server = https://gateway.marvel.com
+
+### fetches for HOMEPAGE
+GET {{server}}
+
+### fetches /signin page
+GET {{server}}/v1/public/characters
