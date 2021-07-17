@@ -1,15 +1,13 @@
 import md5 from 'md5'
 import {PRIVATE_KEY, PUBLIC_KEY} from './../../secrets'
-//state
 
-const API_KEY = PRIVATE_KEY + PUBLIC_KEY
-
-const askForHeroesData = async () => {
+const requestFromMarvel = async (resource:string, options?:string|undefined|null) => {
   const timeStamp = Date.now()
-  const hash = md5(timeStamp.toString() + API_KEY)
-  const URL = () => `http://gateway.marvel.com/v1/public/comics?ts=${timeStamp}&apikey=${PUBLIC_KEY}&hash=${hash}`
+  const hash = md5(timeStamp.toString() + PRIVATE_KEY + PUBLIC_KEY)
+  const URL = () => `http://gateway.marvel.com/v1/public/${resource}?ts=${timeStamp}&apikey=${PUBLIC_KEY}&hash=${hash}${options}`
+  
   try {
-    let response = await fetch(URL(), {
+    const response = await fetch(URL(), {
       method: 'GET',
         headers: {
         Accept: '*/*'
@@ -21,4 +19,4 @@ const askForHeroesData = async () => {
   }
 }
 
-export {askForHeroesData}
+export {requestFromMarvel}
