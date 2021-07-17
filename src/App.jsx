@@ -1,19 +1,56 @@
 import React, { useState } from 'react'
 import {requestFromMarvel} from './api/fetcher'
-import './App.css'
+import TopBar from './components/TopBar'
 
 function App() {
   const [heroesData, setHeroesData] = useState({})
+  const [searchTerm, setSearchTerm] = useState('')
+  const testterm = 'spider'
 
   const getData = async () => {
-    const data = await requestFromMarvel('characters', '')
-    setHeroesData(data)
-    console.log(data.data.results)
+    requestFromMarvel(
+      'characters',
+      `nameStartsWith=${searchTerm}`
+    ).then(data => {
+      setHeroesData(data)
+      console.log(data.data.results)
+    })
+   
+  }
+  
+  const handleSubmit = async () => {
+    console.log('search requested')
+    requestFromMarvel(
+      'characters',
+      `nameStartsWith=${testterm}`
+    ).then(data => {
+      setHeroesData(data)
+      console.log(data)
+    })
+
+  }
+
+  const handleChange = (event) => {
+    setSearchTerm(event.target.value)
+    console.log(event.target.value)
   }
 
   return (
     <div className={'container'}>
+      <TopBar />
       <h1>Busca de Personagens</h1>
+
+      <form onSubmit={handleSubmit}>
+        <label>
+          Busca por Nome:
+          <input
+            type="text"
+            name="name"
+            value={searchTerm}
+            onChange={handleChange}
+          />
+        </label>
+      </form>
       
       <button onClick={getData}>fetch</button>
 
@@ -44,7 +81,8 @@ function App() {
         .container {
           background-color: #aaa;
           min-height: 100vh;
-          width: 100vw;
+          width: 100%;
+          margin-bottom: 20px;
         }
 
         .heroData {
