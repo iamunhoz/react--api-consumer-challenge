@@ -21,8 +21,10 @@ export default function SearchBar(props:searchProps) {
         </label>
       </form>
         
-      <button onClick={props.submitAction}>
+      <button onClick={() => props.submitAction(0)}>
+
         <img src='/searchIcon.svg'></img>
+      
       </button>
     </div>
   )
