@@ -1,10 +1,16 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 
 
 export default function HeroesGrid(props) {
+  const [arrayIsValid, setArrayIsValid] = useState(props.db && props.db.length > 0)
+
+  useEffect(() => {
+    setArrayIsValid(props.db && props.db.length > 0)
+  }, [props.db])
+
   console.log("Received HeroesGridProps:")
   console.log(props.db)
-  if (props.db && props.db.length > 0) {
+  if (arrayIsValid) {
     return (
       <div>
         <h5>Series</h5>

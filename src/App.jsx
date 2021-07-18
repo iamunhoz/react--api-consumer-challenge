@@ -16,7 +16,6 @@ function App() {
       `&nameStartsWith=${searchTerm}`
     ).then(response => {
       setHeroesData(response.data.results)
-      setHeroesToDisplay(heroesData)
     })
   }
   
@@ -25,6 +24,7 @@ function App() {
   }
 
   useEffect(getData,[])
+  useEffect(() => setHeroesToDisplay(heroesData),[heroesData])
 
   return (
     <div className={'container'}>
@@ -37,9 +37,9 @@ function App() {
         submitAction={getData}
       />
 
-      {heroesToDisplay && <HeroesGrid db={heroesToDisplay} />}   
+      <HeroesGrid db={heroesToDisplay} />   
 
-      {heroesData && <Pager heroList={heroesData} changeDisplay={setHeroesToDisplay}/>}
+      <Pager heroList={heroesData} changeDisplay={setHeroesToDisplay}/>
 
       <style>{`
         .container {
