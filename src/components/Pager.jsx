@@ -9,12 +9,13 @@ export default function Pager(props) {
 
   if (arrayIsValid){ 
   const pagesAmount = Math.ceil(props.heroList.length/10)
+  console.log(`pagesAmount=${pagesAmount}&props.heroList.length=${props.heroList.length}`)
   return (
     <div>
       {Array(pagesAmount).fill(0).map((_, i) => {
-        const filteredHeroes = props.heroList.slice(i, i+2)
+        const filteredHeroes = props.heroList.slice(i*10, i*10+9)
         return (
-        <button onClick={
+        <button key={i} onClick={
             () => props.changeDisplay(filteredHeroes)
           }>
           
