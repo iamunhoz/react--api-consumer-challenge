@@ -10,7 +10,7 @@ function App() {
   const [heroesToDisplay, setHeroesToDisplay] = useState([])
   const [searchTerm, setSearchTerm] = useState('Iron Man')
 
-  const getData = async (offset) => {
+  const getData = async () => {
     requestFromMarvel(
       'characters',
       `&nameStartsWith=${searchTerm}`
@@ -39,7 +39,7 @@ function App() {
 
       {heroesToDisplay && <HeroesGrid db={heroesToDisplay} />}   
 
-      {false && <Pager heroList={heroesData} changeDisplay={setHeroesToDisplay}/>}
+      {heroesData && <Pager heroList={heroesData} changeDisplay={setHeroesToDisplay}/>}
 
       <style>{`
         .container {

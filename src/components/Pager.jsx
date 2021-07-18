@@ -1,13 +1,18 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 
 export default function Pager(props) {
-  const pagesAmount = Math.ceil(props.heroList.length/10)
+  const [arrayIsValid, setArrayIsValid] = useState(props.heroList.length > 0)
 
-  if (false){ 
+  useEffect(() => {
+    setArrayIsValid(props.heroList.length > 0)
+  }, [props.heroList])
+
+  if (arrayIsValid){ 
+  const pagesAmount = Math.ceil(props.heroList.length/10)
   return (
     <div>
       {Array(pagesAmount).fill(0).map((_, i) => {
-        const filteredHeroes = props.HeroesData.slice(i, i+2)
+        const filteredHeroes = props.heroList.slice(i, i+2)
         return (
         <button onClick={
             () => props.changeDisplay(filteredHeroes)
@@ -19,6 +24,6 @@ export default function Pager(props) {
       )})}
     </div>
   )} else {
-    return null
+    return <div>error</div>
   }
 }
