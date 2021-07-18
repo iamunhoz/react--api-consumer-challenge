@@ -13,8 +13,8 @@ function App() {
     requestFromMarvel(
       'characters',
       `&nameStartsWith=${searchTerm}`
-    ).then(data => {
-      setHeroesData(data)
+    ).then(response => {
+      setHeroesData(response)
       console.log(data)
     })
   }
@@ -29,7 +29,12 @@ function App() {
     <div className={'container'}>
       <TopBar />
       <h1>Busca de Personagens</h1>
-      <SearchBar inputValue={searchTerm} inputOnChange={handleChange} submitAction={getData} />
+      
+      <SearchBar
+        inputValue={searchTerm}
+        inputOnChange={handleChange}
+        submitAction={getData}
+      />
 
       <HeroesGrid db={heroesData} />   
 
