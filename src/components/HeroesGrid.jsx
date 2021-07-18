@@ -2,12 +2,14 @@ import React from 'react'
 
 
 export default function HeroesGrid(props) {
-  if (props.db.data?.results) {
+  console.log("Received HeroesGridProps:")
+  console.log(props.db)
+  if (props.db && props.db.length > 0) {
     return (
       <div>
         <h5>Series</h5>
         <h5>Events</h5>
-        {props.db.data.results.map((hero, i) => (
+        {props.db.map((hero, i) => (
           <div className={'heroData'}key={i}>
             <img className={'heroFace'}src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`}></img>
             <h4>{hero.name}</h4>

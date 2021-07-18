@@ -7,6 +7,7 @@ import Pager from './components/Pager'
 
 function App() {
   const [heroesData, setHeroesData] = useState({})
+  const [heroesToDisplay, setHeroesToDisplay] = useState([])
   const [searchTerm, setSearchTerm] = useState('Iron Man')
 
   const getData = async (offset) => {
@@ -14,8 +15,7 @@ function App() {
       'characters',
       `&nameStartsWith=${searchTerm}`
     ).then(response => {
-      setHeroesData(response)
-      console.log(data)
+      setHeroesData(response.data.results)
     })
   }
   
@@ -23,7 +23,11 @@ function App() {
     setSearchTerm(event.target.value)
   }
 
-  useEffect(getData, [])
+  useEffect(
+    () => getData().then(() => setHeroesToDisplay(heroesData))
+    ,
+    [heroesData]
+  )
 
   return (
     <div className={'container'}>
@@ -36,7 +40,9 @@ function App() {
         submitAction={getData}
       />
 
-      <HeroesGrid db={heroesData} />   
+      {heroesToDisplay && <HeroesGrid db={heroesToDisplay} />}   
+
+      {heroesData && <Pager heroList={heroesData}/>}
 
       <style>{`
         .container {
@@ -51,5 +57,3 @@ function App() {
 }
 
 export default App
-
-//    {heroesData && <Pager heroListLength={heroesData.data?.total} submitAction={getData} />}
