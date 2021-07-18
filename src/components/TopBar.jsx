@@ -10,7 +10,7 @@ export default function TopBar() {
         <button>CB</button>
       </div>
     </div>
-    <style jsx>{`
+    <style>{`
       .topbar-container {
         width: 100%;
         height: 100px;

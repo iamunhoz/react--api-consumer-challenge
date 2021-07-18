@@ -23,7 +23,7 @@ export default function HeroesGrid(props) {
             </div>
           </div>
         ))}
-        <style jsx>{`
+        <style>{`
           .heroData {
             margin: 1rem auto;
             display: grid;

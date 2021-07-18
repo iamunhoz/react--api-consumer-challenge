@@ -33,7 +33,7 @@ function App() {
 
       <HeroesGrid db={heroesData} />   
 
-      <style jsx>{`
+      <style>{`
         .container {
           background-color: #aaa;
           min-height: 100vh;
