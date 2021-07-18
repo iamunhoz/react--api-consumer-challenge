@@ -48,15 +48,20 @@ export default function SearchBar(props:searchProps) {
           display: flex;
           justify-content: space-between;
         }
+
         .search-colors {
           background: #FFFFFF 0% 0% no-repeat padding-box;
           border: 0;
-          
           opacity: 1;
           font: italic normal normal 14px/19px PT Sans;
           letter-spacing: 0px;
           color: #8E8E8E;
         }
+
+        input.search-colors:focus {
+          outline: none;
+        }
+
       `}</style>
     </div>
   )

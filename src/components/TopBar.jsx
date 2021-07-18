@@ -5,8 +5,10 @@ export default function TopBar() {
     <div className={'topbar-container'}>
       <img className={'vertical-align topbar-logo'} src='/logo.svg'></img>
       <div className={'vertical-align topbar-right'}>
-        <span className={'topbar-description'}>Nome do Candidato</span>
-        <span>Ivã A. Munhoz</span>
+        <div className={'text-flex'}>
+          <span className={'topbar-description text'}>Nome do Candidato</span>
+          <span className={' text'}>Ivã A. Munhoz</span>
+        </div>
         <button className={'topbar-bold topbar-button'}>CB</button>
       </div>
     </div>
@@ -33,14 +35,32 @@ export default function TopBar() {
       .topbar-right {
         display: flex;
         align-items: center;
+        justify-content: space-between;
       }
 
-      
       .topbar-right > * {
-        margin-right: 5px;
+        margin-right: 10px;
         font-family: 'PT Sans Caption', sans-serif;
         color: #555555;
       }
+
+      .text-flex {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .text {
+        padding: 0 5px;
+      }
+
+      @media (max-width: 600px) {
+        .text-flex {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+        }
+      }
+      
       
       .topbar-description {
         font-weight: bold;
@@ -49,10 +69,11 @@ export default function TopBar() {
       .topbar-button {
         font-size: 15px;
         font-weight: bold;
-        border: 1px solid #ddd;
+        border: 1px solid #eee;
         background: #F5F5F5 0% 0% no-repeat padding-box;
         border-radius: 4px;
         opacity: 1;
+        padding: 5px;
 
       }
     `}</style></>

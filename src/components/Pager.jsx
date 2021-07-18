@@ -11,12 +11,12 @@ export default function Pager(props) {
   const pagesAmount = Math.ceil(props.heroList.length/10)
   console.log(`pagesAmount=${pagesAmount}&props.heroList.length=${props.heroList.length}`)
   return (
-    <div>
+    <div className={'pager-container'}>
       {Array(pagesAmount).fill(0).map((_, i) => {
         const filteredHeroes = props.heroList.slice(i*10, i*10+9)
-        return (<div>
+        return (<div key={i}>
         <button
-          key={i}
+          
           className={'pager-button'}
           onClick={
             () => props.changeDisplay(filteredHeroes)
@@ -31,6 +31,10 @@ export default function Pager(props) {
         </div>
       )})}
       <style>{`
+        .pager-container {
+          display: flex;
+          justify-content: center;
+        }
         .pager-button {
           background: #F5F5F5 0% 0% no-repeat padding-box;
           border: 1px solid #E5E5E5; 
@@ -39,6 +43,9 @@ export default function Pager(props) {
           color: #555555;
           width: 40px;
           height: 32px;
+        }
+        .pager-button:hover {
+          background-color: #689FFC;
         }
       `}</style>
     </div>

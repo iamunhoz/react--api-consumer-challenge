@@ -16,16 +16,17 @@ export default function HeroesGrid(props) {
           <div className={'heroData'}key={i}>
             <img className={'heroFace'}src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`}></img>
             <h4 className={'heroName'}>{hero.name}</h4>
-            <div>
+            <div className={'heroDataColumn'}>
               {hero.series.items.map((serie, i) => (
                 <p className={'heroText'}key={i}>{serie.name}</p>
               ))}
             </div>
-            <div>
+            <div className={'heroDataColumn'}>
               {hero.events.items.map((evento, i) => (
                 <p className={'heroText'}key={i}>{evento.name}</p>
               ))}
             </div>
+            <div className={'hover-visible'}>Text on Hover</div>
           </div>
         ))}
         <style>{`
@@ -38,6 +39,22 @@ export default function HeroesGrid(props) {
             margin-top: 0;
             border-radius: 4px;
           }
+
+          .heroData:hover {
+            box-shadow: 0 0 5px #888888;
+          }
+
+          .hover-visible {
+            display: none;
+          }
+
+          .heroData:hover > .hover-visible {
+            display: block;
+            position: absolute;
+            top: 100px;
+            left: 100px;
+          }
+
 
           .heroFace {
             width: 48px;
@@ -56,6 +73,19 @@ export default function HeroesGrid(props) {
             letter-spacing: 0px;
             color: #555555;
           }
+
+        
+          @media (max-width: 600px) {
+            .heroDataColumn {
+              display: none;
+            }
+            .heroData {
+              display: grid;
+              grid-template-columns: 1fr 4fr;
+          }
+        }
+
+
         `}</style>
       </div>
     )
@@ -71,8 +101,8 @@ function GridColumnNames() {
     <div className={'grid-column-container'}>
       <h4 className={'grid-column-name'}>Personagem</h4>
       <h4></h4>
-      <h4 className={'grid-column-name'}>Series</h4>
-      <h4 className={'grid-column-name'}>Eventos</h4>
+      <h4 className={'grid-column-name no-small'}>Series</h4>
+      <h4 className={'grid-column-name no-small'}>Eventos</h4>
       <style>{`
         .grid-column-container {
           display: grid;
@@ -88,6 +118,13 @@ function GridColumnNames() {
           color: #8E8E8E;
           opacity: 1;
         }
+        
+        @media (max-width: 600px) {
+          .no-small {
+            display: none;
+          }
+        }
+        
       `}</style>
     </div>
   )
