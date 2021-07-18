@@ -36,11 +36,13 @@ export default function HeroesGrid(props) {
             background-color: #fff;
             padding: 20px;
             margin-top: 0;
+            border-radius: 4px;
           }
 
           .heroFace {
             width: 48px;
             height: 48px;
+            border-radius: 4px;
           }
 
           .heroName {

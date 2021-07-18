@@ -12,21 +12,24 @@ export default function SearchBar(props:searchProps) {
 
       <h2 className={'search-label'}>Nome do Personagem</h2>
 
-      <input
-        className={'search-colors'}
-        type="text"
-        name="name"
-        value={props.inputValue}
-        onChange={props.inputOnChange}
-      />
+      <div className={'search-bar'}> 
+        <input
+          className={'search-colors'}
+          type="text"
+          name="name"
+          value={props.inputValue}
+          onChange={props.inputOnChange}
+        />
         
-      <button
-        className={'search-colors'} onClick={() => props.submitAction(0)}>
-
-        <img
-          className={'search-colors'} src='/searchIcon.svg'></img>
-      
+        <button
+          className={'search-colors'} onClick={() => props.submitAction(0)}>
+          <img
+             src='/searchIcon.svg'>
+        
+            </img>
+        
       </button>
+      </div>
 
       <style>{`
         .search-label {
@@ -36,10 +39,19 @@ export default function SearchBar(props:searchProps) {
           color: #555555;
           opacity: 1;
         }
-        .search-colors {
+        
+        .search-bar {
           background: #FFFFFF 0% 0% no-repeat padding-box;
           border: 1px solid #E5E5E5;
           border-radius: 4px;
+          max-width: 300px;
+          display: flex;
+          justify-content: space-between;
+        }
+        .search-colors {
+          background: #FFFFFF 0% 0% no-repeat padding-box;
+          border: 0;
+          
           opacity: 1;
           font: italic normal normal 14px/19px PT Sans;
           letter-spacing: 0px;
