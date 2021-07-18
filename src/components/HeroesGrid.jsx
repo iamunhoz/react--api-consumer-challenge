@@ -11,11 +11,12 @@ export default function HeroesGrid(props) {
   console.log("Received HeroesGridProps:")
   console.log(props.db)
   if (arrayIsValid) {
+    const heroArray = props.db.length > 10 ? props.db.slice(0, 10) : props.db
     return (
       <div>
         <h5>Series</h5>
         <h5>Events</h5>
-        {props.db.map((hero, i) => (
+        {heroArray.map((hero, i) => (
           <div className={'heroData'}key={i}>
             <img className={'heroFace'}src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`}></img>
             <h4>{hero.name}</h4>
