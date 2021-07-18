@@ -4,6 +4,7 @@ import TopBar from './components/TopBar'
 import SearchBar from './components/SearchBar'
 import HeroesGrid from './components/HeroesGrid'
 import Pager from './components/Pager'
+import PageTitle from './components/PageTitle'
 
 function App() {
   const [heroesData, setHeroesData] = useState({})
@@ -27,26 +28,32 @@ function App() {
   useEffect(() => setHeroesToDisplay(heroesData),[heroesData])
 
   return (
-    <div className={'container'}>
+    <div className={'app-container'}>
       <TopBar />
-      <h1>Busca de Personagens</h1>
-      
-      <SearchBar
-        inputValue={searchTerm}
-        inputOnChange={handleChange}
-        submitAction={getData}
-      />
 
-      <HeroesGrid db={heroesToDisplay} />   
-
-      <Pager heroList={heroesData} changeDisplay={setHeroesToDisplay}/>
+      <main>
+        <PageTitle />
+        
+        <SearchBar
+          inputValue={searchTerm}
+          inputOnChange={handleChange}
+          submitAction={getData}
+        />
+        <HeroesGrid db={heroesToDisplay} />
+        <Pager heroList={heroesData} changeDisplay={setHeroesToDisplay}/>
+      </main>
 
       <style>{`
-        .container {
-          background-color: #aaa;
+        .app-container {
+          background: #E5E5E5 0% 0% no-repeat padding-box;
           min-height: 100vh;
           width: 100%;
-          margin-bottom: 20px;
+        }
+
+        main {
+          width: 80%;
+          margin: 0 auto;
+          padding-top: 50px;
         }
       `}</style>
     </div>

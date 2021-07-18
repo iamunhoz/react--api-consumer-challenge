@@ -14,15 +14,33 @@ export default function Pager(props) {
     <div>
       {Array(pagesAmount).fill(0).map((_, i) => {
         const filteredHeroes = props.heroList.slice(i*10, i*10+9)
-        return (
-        <button key={i} onClick={
+        return (<div>
+        <button
+          key={i}
+          className={'pager-button'}
+          onClick={
             () => props.changeDisplay(filteredHeroes)
-          }>
+          }
+          
+          >
           
           {i+1}
           
         </button>
+   
+        </div>
       )})}
+      <style>{`
+        .pager-button {
+          background: #F5F5F5 0% 0% no-repeat padding-box;
+          border: 1px solid #E5E5E5; 
+          font: normal normal normal 14px/19px PT Sans;
+          letter-spacing: 0px;
+          color: #555555;
+          width: 40px;
+          height: 32px;
+        }
+      `}</style>
     </div>
   )} else {
     return <div>error</div>

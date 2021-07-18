@@ -13,7 +13,7 @@ export default function TopBar() {
     <style>{`
       .topbar-container {
         width: 100%;
-        height: 100px;
+        height: 64px;
         background-color: #fff;
         display: flex;
         justify-content: space-between;
