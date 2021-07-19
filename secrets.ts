@@ -1,4 +1,0 @@
-const PRIVATE_KEY = '2c54a63d3f5a8f631e06fb3ffee5862853da3011'
-const PUBLIC_KEY  = '7737b3447b9f5b2aefdd72eadda232e9'
-
-export {PRIVATE_KEY, PUBLIC_KEY}

@@ -86,7 +86,8 @@ export default function Pager(props) {
           }
         }
         >
-          {'>'}</button>
+          {'>'}
+      </button>
 
 
       <button
@@ -99,7 +100,9 @@ export default function Pager(props) {
           }
         }
         >
-          {'>>'}</button>
+          {'>>'}
+          
+      </button>
 
       <style>{`
         .pager-container {
@@ -107,6 +110,7 @@ export default function Pager(props) {
           justify-content: center;
           padding-bottom: 20px;
         }
+
         .pager-button {
           background: #F5F5F5 0% 0% no-repeat padding-box;
           border: 1px solid #E5E5E5; 
@@ -116,6 +120,7 @@ export default function Pager(props) {
           width: 40px;
           height: 32px;
         }
+        
         .pager-button:hover {
           background-color: #689FFC;
         }
@@ -132,6 +137,6 @@ export default function Pager(props) {
       `}</style>
     </div>
   )} else {
-    return <div>error</div>
+    return null
   }
 }

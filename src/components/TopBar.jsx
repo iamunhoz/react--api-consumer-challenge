@@ -65,7 +65,6 @@ export default function TopBar() {
         }
       }
       
-      
       .topbar-description {
         font-weight: bold;
       }
