@@ -15,7 +15,7 @@ export default function Pager(props) {
     return (
     <div className={'pager-container'}>
       <button
-        className={'pager-button pager-skip'}
+        className={currentPage == 1 || pagesAmount < 5 ? 'pager-button-disable' :'pager-button pager-skip'}
         onClick={
           () => {
             const filteredHeroes = props.heroList.slice(0, 10)
@@ -29,7 +29,7 @@ export default function Pager(props) {
 
 
       <button
-        className={'pager-button pager-skip'}
+        className={currentPage == 1 || pagesAmount < 5 ? 'pager-button-disable' :'pager-button pager-skip'}
         onClick={
           () => {
             const sliceStart = (currentPage - 5 > 6) ? (currentPage-5)*10 : 1
@@ -67,7 +67,7 @@ export default function Pager(props) {
       )})}
 
       <button
-        className={'pager-button pager-skip'}
+        className={currentPage == pagesAmount || pagesAmount < 5 ? 'pager-button-disable' :'pager-button pager-skip'}
         onClick={
           () => {
             if (currentPage + 5 < pagesAmount) {
@@ -91,7 +91,7 @@ export default function Pager(props) {
 
 
       <button
-        className={'pager-button pager-skip'}
+        className={currentPage == pagesAmount || pagesAmount < 5 ? 'pager-button-disable' :'pager-button pager-skip'}
         onClick={
           () => {
             const filteredHeroes  = props.heroList.slice(-10)
@@ -147,6 +147,10 @@ export default function Pager(props) {
           border-radius: 4px;
           margin-left: 3px;
           margin-right: 3px;
+        }
+
+        .pager-button-disable {
+          visibility: hidden;
         }
       `}</style>
     </div>
