@@ -1,5 +1,5 @@
-### This file containts http requests for testing purposes
-### It was made to be used on vs-code with 'Rest Client' extension installed
+### Esse arquivo contém dados para testes da API em uso
+### Para testar dentro do vsCode é necessário ter a extensão 'Rest Client'.
 
 ###variables
 @server = https://gateway.marvel.com
