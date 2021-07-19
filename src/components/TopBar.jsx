@@ -59,6 +59,10 @@ export default function TopBar() {
           flex-direction: column;
           align-items: flex-end;
         }
+
+        .text {
+          font-size: 10px;
+        }
       }
       
       

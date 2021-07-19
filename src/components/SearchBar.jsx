@@ -12,7 +12,8 @@ export default function SearchBar(props) {
 
       <h2 className={'search-label'}>Nome do Personagem</h2>
 
-      <div className={'search-bar'}> 
+      <div className={'search-bar'}>
+
         <input
           className={'search-colors'}
           type="text"
@@ -23,13 +24,11 @@ export default function SearchBar(props) {
         />
         
         <button
-          className={'search-colors'} onClick={() => props.submitAction(0)}>
-          <img
-             src='/searchIcon.svg'>
-        
-            </img>
-        
-      </button>
+          className={'search-colors search-button'}
+          onClick={() => props.submitAction(0)}
+        >
+          <img src='/searchIcon.svg'></img>
+        </button>
       </div>
 
       <style>{`
@@ -58,10 +57,16 @@ export default function SearchBar(props) {
           font: italic normal normal 14px/19px PT Sans;
           letter-spacing: 0px;
           color: #8E8E8E;
+          border-radius: 4px;
         }
 
         input.search-colors:focus {
           outline: none;
+        }
+
+        .search-button {
+          padding-top: 5px;
+          padding-left: 5px;
         }
 
       `}</style>

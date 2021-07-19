@@ -9,7 +9,6 @@ export default function HeroesGrid(props) {
 
   if (arrayIsValid) {
     const heroArray = props.db.length > 10 ? props.db.slice(0, 10) : props.db
-    console.log(props.db)
     return (
       <div className={'heroData-container'}>
         <GridColumnNames />
@@ -27,7 +26,7 @@ export default function HeroesGrid(props) {
                 <p className={'heroText'}key={i}>{evento.name}</p>
               ))}
             </div>
-            <div className={'hover-visible heroText'}>{hero.description}</div>
+            <div className={'hoverVisible heroText'}>{hero.description ? hero.description : 'no description in database' }</div>
           </div>
         ))}
         <style>{`
@@ -46,18 +45,19 @@ export default function HeroesGrid(props) {
             box-shadow: 0 0 5px #888888;
           }
 
-          .hover-visible {
+          .hoverVisible {
             visibility: hidden;
             position: absolute;
           }
 
-          .heroData:hover > .hover-visible {
+          .heroData:hover > .hoverVisible {
             visibility: visible;
             position: absolute;
             left: 70px;
             background-color: #ddd;
             padding: 5px;
             border-radius: 4px;
+            z-index: 99;
           }
 
 
@@ -100,7 +100,17 @@ export default function HeroesGrid(props) {
     )
   } else {
     return (
-      <h1>Loading...</h1>
+      <div className={'loading-gif-container'}>
+        <img src={'/loading.gif'}></img>
+        <style>{`
+          .loading-gif-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        `}</style>
+      </div>
     )
   }
 }
@@ -120,6 +130,7 @@ function GridColumnNames() {
           padding: 0 20px;
           margin-bottom: 0;
         }
+
         .grid-column-name {
           text-align: left;
           font: normal normal normal 12px/16px PT Sans;
@@ -128,6 +139,8 @@ function GridColumnNames() {
           opacity: 1;
         }
         
+
+
         @media (max-width: 600px) {
           .no-small {
             display: none;
