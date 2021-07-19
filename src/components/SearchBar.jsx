@@ -1,12 +1,12 @@
 import React from 'react'
 
-interface searchProps {
-  inputValue: string;
-  inputOnChange: ChangeEventHandler<HTMLInputElement>;
-  submitAction: MouseEventHandler<HTMLButtonElement>;
+export default function SearchBar(props) {
 
-}
-export default function SearchBar(props:searchProps) {
+  const handler = e => {
+    if (e.charCode === 13) {
+      props.submitAction(0)
+    }
+  }
   return (
     <div>
 
@@ -19,6 +19,7 @@ export default function SearchBar(props:searchProps) {
           name="name"
           value={props.inputValue}
           onChange={props.inputOnChange}
+          onKeyPress={(e) => handler(e)}
         />
         
         <button
@@ -32,6 +33,15 @@ export default function SearchBar(props:searchProps) {
       </div>
 
       <style>{`
+        .search-bar {
+          background: #FFFFFF 0% 0% no-repeat padding-box;
+          border: 1px solid #E5E5E5;
+          border-radius: 4px;
+          max-width: 300px;
+          display: grid;
+          grid-template-columns: 10fr 1fr;
+        }
+
         .search-label {
           text-align: left;
           font: normal normal bold 16px/24px PT Sans Caption;
@@ -40,14 +50,6 @@ export default function SearchBar(props:searchProps) {
           opacity: 1;
         }
         
-        .search-bar {
-          background: #FFFFFF 0% 0% no-repeat padding-box;
-          border: 1px solid #E5E5E5;
-          border-radius: 4px;
-          max-width: 300px;
-          display: flex;
-          justify-content: space-between;
-        }
 
         .search-colors {
           background: #FFFFFF 0% 0% no-repeat padding-box;

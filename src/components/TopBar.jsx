@@ -74,7 +74,11 @@ export default function TopBar() {
         border-radius: 4px;
         opacity: 1;
         padding: 5px;
+      }
 
+      .topbar-button:hover {
+        background-color: #555555;
+        color: #F5F5F5;
       }
     `}</style></>
   )

@@ -1,5 +1,7 @@
 import md5 from 'md5'
-import {PRIVATE_KEY, PUBLIC_KEY} from './../../secrets'
+
+const PRIVATE_KEY = import.meta.env.VITE_PRIVATE_KEY
+const PUBLIC_KEY = import.meta.env.VITE_PUBLIC_KEY
 
 const requestFromMarvel = async (resource:string, options?:string|undefined|null) => {
   const timeStamp = Date.now()
@@ -7,6 +9,7 @@ const requestFromMarvel = async (resource:string, options?:string|undefined|null
   const server = 'http://gateway.marvel.com/v1/public/'
   const URL = () => `${server}${resource}?ts=${timeStamp}&limit=100&apikey=${PUBLIC_KEY}&hash=${hash}${options}`
   console.log(`requisition param: ${URL()}`)
+  console.log(import.meta.env.VITE_PRIVATE_KEY)
   
   try {
     const response = await fetch(URL(), {
