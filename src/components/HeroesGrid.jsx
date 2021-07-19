@@ -79,8 +79,8 @@ export default function HeroesGrid(props) {
             font: normal normal normal 14px/16px PT Sans;
             letter-spacing: 0px;
             color: #555555;
-            padding-left: 5px;
-            padding-right: 5px;
+            padding-left: 0;
+            padding-right: 10px;
           }
 
         
