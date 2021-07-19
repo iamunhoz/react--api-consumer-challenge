@@ -6,8 +6,8 @@ export default function TopBar() {
       <img className={'vertical-align topbar-logo'} src='/logo.svg'></img>
       <div className={'vertical-align topbar-right'}>
         <div className={'text-flex'}>
-          <span className={'topbar-description text'}>Nome do Candidato</span>
-          <span className={' text'}>Ivã A. Munhoz</span>
+          <span className={'topbar-description text'}>Ivã A. Munhoz</span>
+          <span className={' text'}>Teste de Front-end</span>
         </div>
         <button className={'topbar-bold topbar-button'}>CB</button>
       </div>

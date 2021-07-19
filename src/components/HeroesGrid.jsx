@@ -9,6 +9,7 @@ export default function HeroesGrid(props) {
 
   if (arrayIsValid) {
     const heroArray = props.db.length > 10 ? props.db.slice(0, 10) : props.db
+    console.log(props.db)
     return (
       <div className={'heroData-container'}>
         <GridColumnNames />
@@ -26,7 +27,7 @@ export default function HeroesGrid(props) {
                 <p className={'heroText'}key={i}>{evento.name}</p>
               ))}
             </div>
-            <div className={'hover-visible'}>Text on Hover</div>
+            <div className={'hover-visible heroText'}>{hero.description}</div>
           </div>
         ))}
         <style>{`
@@ -38,6 +39,7 @@ export default function HeroesGrid(props) {
             padding: 20px;
             margin-top: 0;
             border-radius: 4px;
+            position: relative;
           }
 
           .heroData:hover {
@@ -45,14 +47,17 @@ export default function HeroesGrid(props) {
           }
 
           .hover-visible {
-            display: none;
+            visibility: hidden;
+            position: absolute;
           }
 
           .heroData:hover > .hover-visible {
-            display: block;
+            visibility: visible;
             position: absolute;
-            top: 100px;
-            left: 100px;
+            left: 70px;
+            background-color: #ddd;
+            padding: 5px;
+            border-radius: 4px;
           }
 
 
