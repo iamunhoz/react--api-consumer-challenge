@@ -40,8 +40,9 @@ function App() {
           submitAction={getData}
         />
         <HeroesGrid db={heroesToDisplay} />
-        <Pager heroList={heroesData} changeDisplay={setHeroesToDisplay}/>
       </main>
+      
+      <Pager heroList={heroesData} changeDisplay={setHeroesToDisplay}/>
 
       <style>{`
         .app-container {

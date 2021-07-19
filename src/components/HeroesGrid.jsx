@@ -34,7 +34,7 @@ export default function HeroesGrid(props) {
             margin: 1rem auto;
             display: grid;
             grid-template-columns: 1fr 4fr 4fr 4fr;
-            background-color: #fff;
+            background-color: #ffffff;
             padding: 20px;
             margin-top: 0;
             border-radius: 4px;
@@ -104,6 +104,7 @@ export default function HeroesGrid(props) {
         <img src={'/loading.gif'}></img>
         <style>{`
           .loading-gif-container {
+            height: 50vh;
             width: 100%;
             display: flex;
             justify-content: center;

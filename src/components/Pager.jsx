@@ -15,7 +15,7 @@ export default function Pager(props) {
     return (
     <div className={'pager-container'}>
       <button
-        className={'pager-button'}
+        className={'pager-button pager-skip'}
         onClick={
           () => {
             const filteredHeroes = props.heroList.slice(0, 10)
@@ -29,7 +29,7 @@ export default function Pager(props) {
 
 
       <button
-        className={'pager-button'}
+        className={'pager-button pager-skip'}
         onClick={
           () => {
             const sliceStart = (currentPage - 5 > 6) ? (currentPage-5)*10 : 1
@@ -67,7 +67,7 @@ export default function Pager(props) {
       )})}
 
       <button
-        className={'pager-button'}
+        className={'pager-button pager-skip'}
         onClick={
           () => {
             if (currentPage + 5 < pagesAmount) {
@@ -91,7 +91,7 @@ export default function Pager(props) {
 
 
       <button
-        className={'pager-button'}
+        className={'pager-button pager-skip'}
         onClick={
           () => {
             const filteredHeroes  = props.heroList.slice(-10)
@@ -108,7 +108,10 @@ export default function Pager(props) {
         .pager-container {
           display: flex;
           justify-content: center;
+          padding-top: 10px;
           padding-bottom: 20px;
+          background: #FFFFFF 0% 0% no-repeat padding-box;
+          width: 100%;
         }
 
         .pager-button {
@@ -119,10 +122,18 @@ export default function Pager(props) {
           color: #555555;
           width: 40px;
           height: 32px;
+          border-radius: 4px;
+          margin-left: 3px;
+          margin-right: 3px;
         }
         
         .pager-button:hover {
           background-color: #689FFC;
+        }
+
+        .pager-skip {
+          background-color: #ffffff;
+          border: 0;
         }
 
         .pager-button-active {
@@ -133,6 +144,9 @@ export default function Pager(props) {
           color: #ddd;
           width: 40px;
           height: 32px;
+          border-radius: 4px;
+          margin-left: 3px;
+          margin-right: 3px;
         }
       `}</style>
     </div>
