@@ -1,4 +1,4 @@
-# Desafio Objective - candidato Ivã A. Munhoz
+# Desafio - Ivã A. Munhoz
 
 ## Informações Gerais
 
